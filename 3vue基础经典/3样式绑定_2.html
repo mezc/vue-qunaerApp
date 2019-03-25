@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../vue.min.js"></script>
+    <style>
+        .activated{
+            color:red;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        
+        <div @click="handleClick" :style = "[styleObj,{fontSize:'20px'}]" @click="handleClick">hello World</div>
+    </div>
+    <script>
+        var vm = new Vue({
+            el:"#app",
+            data:{
+                // isActivated:false
+                styleObj:{
+                    color:"red"
+                }
+            },
+            methods:{
+                handleClick:function(){
+                    // this.isActivated = !this.isActivated;
+                    this.styleObj.color = this.styleObj.color === "black"?"red" : "black"
+                }
+            }
+        })
+    </script>
+    
+</body>
+</html>

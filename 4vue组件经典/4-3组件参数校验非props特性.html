@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <child :content="1234"></child>
+    </div>
+
+    <script>
+        //父组件传递过来的参数，校验用props:{}，不用props:[]
+        Vue.component('child',{
+            template:`<div>{{content}}</div>`,
+            // props:["content"]
+            // props:{
+            //     //接收类型
+            //     // content: [Number,String]
+            //     //对象
+            //     content:{
+            //         type:String,
+            //         //父组件参数必须传
+            //         required:true,
+            //         default:"default value",
+            //         //参数判定器
+            //         validator:function(value){
+            //             return (value.length > 5)
+            //         }
+            //     }
+            // }
+        })
+
+        new Vue({
+            el:"#app",
+
+        })
+    </script>
+    
+</body>
+</html>

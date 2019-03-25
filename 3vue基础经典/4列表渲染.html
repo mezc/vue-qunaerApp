@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src = '../vue.min.js'></script>
+</head>
+<body>
+    <div id="app">
+        <div v-for="(item,index) in msg" ::key="item.id">{{item.text}}---{{index}}</div>
+    </div>
+    <script>
+        var vm = new Vue({
+            el:"#app",
+            data(){
+                return {
+                    msg:[
+                    {id:22222,text:"hello"},
+                    {id:33333,text:"hifioso"},
+                    {id:44444,text:"sdhfiosdjfo"}
+                ]
+                }
+            }
+        })
+    </script>
+    
+</body>
+</html>

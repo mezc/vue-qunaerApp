@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- 此处是绑定任意事件 -->
+        <!-- <child @click="handleClickRandom"></child> -->
+        <!-- 监听原生事件@click.native -->
+        <child @click.native="handleClickRandom"></child>
+    </div>
+
+    <script>
+        Vue.component("child",{
+            //此处是给原生dom绑定事件
+            // template:`<div @click="handleClickOrigin">Child</div>`,
+            // methods:{
+            //     handleClickOrigin(){
+            //         alert("handleClickOrigin")
+            //         //监听，触发父组件的事件
+            //         this.$emit("click")
+            //     }
+            // }
+                template:`<div>Child</div>`
+        })
+    
+        new Vue({
+            el:"#app",
+            methods:{
+                handleClickRandom(){
+                    alert("handleClickRandom")
+                }
+            }
+        })
+    </script>
+    
+</body>
+</html>

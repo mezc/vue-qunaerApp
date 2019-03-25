@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document/发布订阅模式/观察者模式</title>
+    <script src="../vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <Name content="dee"></Name>
+        <Name content="lee"></Name>
+    </div>
+    <script>
+        //给每个vue实例挂载bus属性
+        Vue.prototype.bus = new Vue()
+
+
+        Vue.component("Name",{
+            template:`<div @click="handleClick">{{selfContent}}</div>`,
+            props:{
+                content:String
+            },
+            methods:{
+                handleClick(){
+                    //this.bus是一个vue实例
+                    //触发事件
+                    this.bus.$emit("change", this.content)
+                }
+            },
+            //挂载dom时，监听bus的变动
+            mounted() {
+                //this作用域发生变化
+                var this_ = this
+                //监听事件
+                this.bus.$on("change",function(contentMsg){
+                    // alert(contentMsg)
+                    this_.selfContent = contentMsg
+                })
+            },
+            data(){
+                return {
+                    selfContent:this.content
+                }
+            }
+        })
+
+
+        new Vue({
+            el:"#app"
+        })
+    </script>
+    
+</body>
+</html>

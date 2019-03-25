@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- 父组件向子组件传递参数 -->
+        <!-- count加了：代表后面“”传递的是一个js表达式 -->
+        <!-- @add 监听子组件触发的add事件 -->
+        <Counter :count="0" @add="addCount" ref="first"></Counter>
+        <Counter :count="0" @add="addCount" ref="second"></Counter>
+        <!-- 子组件想父组件传递参数 -->
+        <div>总计：{{total}}</div>
+
+    </div>
+    <script>
+        //子组件
+        var Counter = {
+            //子组件接收父组件传递的参数
+            props:[
+                "count"
+            ],
+            //通过props接收后，可以在子组件的模版里使用父组件传过来的参数
+            template:`<div @click="handleClick">数量：{{number}}</div>`,
+            //如果要修改父组件传递过来的参数值，不要直接修改参数，而在子组件的data中进行修改，保证父组件传递参数不变
+            data(){
+                return {
+                    number:this.count
+                }
+            },
+            methods: {
+                handleClick(){
+                    this.number ++
+                    this.$emit("add",1)
+                }
+            }
+        }
+
+        new Vue({
+            el:"#app",
+            components:{
+                Counter
+            },
+            data(){
+                return {
+                    total:null
+                }
+            },
+            methods:{
+                addCount:function(step){
+                    // this.total = this.$refs.first.number + this.$refs.second.number
+                    this.total += step
+                }
+            }
+        })
+    </script>
+</body>
+</html>

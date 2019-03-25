@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- vue作用域要用template ,用slot-scope接收子组件传递过来的数据-->
+        <child>
+            <template slot-scope="props">
+                <!-- 格式由父组件定义 -->
+                    <h1>
+                        {{props.item}}
+                    </h1>
+            </template>
+        </child>
+    </div>
+    <script>
+        //页面的显示有父组件可定义，不用子组件定义好
+
+        Vue.component("child",{
+            data(){
+                return {
+                    list:[1, 2, 3, 4]
+                }
+            },
+            template:`<div>
+                <slot v-for="item in list" :item=item ></slot>
+            </div>`
+        })
+        new Vue({
+            el:"#app"
+        })
+    </script>
+    
+</body>
+</html>

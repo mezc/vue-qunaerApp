@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../vue.min.js"></script>
+    <style>
+        .activated{
+            color:red;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        
+        <div @click="handleClick" :class = "{activated:isActivated}">hello World</div>
+    </div>
+    <script>
+        var vm = new Vue({
+            el:"#app",
+            data:{
+                isActivated:false
+            },
+            methods:{
+                handleClick:function(){
+                    this.isActivated = !this.isActivated;
+                }
+            }
+        })
+    </script>
+    
+</body>
+</html>
