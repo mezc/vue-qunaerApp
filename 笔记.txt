@@ -40,3 +40,12 @@ reverse 取反
 
 10.非父子组件间的传值：
 Vue.prototype.bus = new Vue()
+
+11.vue作用域插槽
+//11.1子组件用<slot></slot>封装
+//11.2父组件用<template slot-scope="变量名">
+{{变量名.参数}}
+</template>
+
+12.动态组件，vue自带：
+<component :is></component>

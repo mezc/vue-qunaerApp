@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- <child1 v-if="show === 'child1' "></child1>
+        <child2 v-if="show ==='child2' "></child2> -->
+        <!-- 以上可以用以下动态组件方式代替 -->
+        <component :is="show"></component>
+        <button @click="handleClick">change</button>
+    </div>
+    <script>
+        Vue.component("child1",{
+            // v-once将组件储存在内存中，当切换时，不用重新生成，提高静态展示效率
+            template:`<div v-once>child_one</div>`
+        })
+
+        Vue.component("child2",{
+            template:`<div>child_two</div>`
+        })
+        new Vue({
+            el:"#app",
+            data(){
+                return {
+                    show:"child1"
+                }
+            },
+            methods: {
+                handleClick(){
+                    //如果this.show===child1,就让this.show === child2,否则等于child1
+                    this.show = (this.show === 'child1'?'child2':'child1')
+                }
+            },
+        })
+    </script>
+    
+</body>
+</html>

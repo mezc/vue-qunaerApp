@@ -13,8 +13,9 @@
         <child>
             <template slot-scope="props">
                 <!-- 格式由父组件定义 -->
+                <!-- 怎么展示子组件数据 -->
                     <h1>
-                        {{props.item}}
+                        {{props.item}}---hello
                     </h1>
             </template>
         </child>
@@ -29,7 +30,7 @@
                 }
             },
             template:`<div>
-                <slot v-for="item in list" :item=item ></slot>
+                <slot v-for="item in list" :item=item  ></slot>
             </div>`
         })
         new Vue({
