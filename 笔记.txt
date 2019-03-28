@@ -49,3 +49,25 @@ Vue.prototype.bus = new Vue()
 
 12.动态组件，vue自带：
 <component :is></component>
+
+13.动画效果原理:通过在dom上增加样式来实现
+<transition name="fade"></transition>
+//如果不写name，则默认为v-enter,v-enter-active
+////出现
+//第1针：创建fade-enter,fade-enter-active
+//第2针，销毁fade-enter,创建fade-enter-to
+//第3针，销毁fade-enter-active,销毁fade-enter-to 
+////消失
+//第1针：创建fade-leave,fade-leave-active
+//第2针，销毁fade-leave,创建fade-leave-to
+//第3针，销毁fade-leave-active,销毁fade-leave-to
+.v-enter,.v-leave-to{
+    opacity:0
+}
+.v-enter-active,.v-leave-active{
+    transition:opacity 1s;
+}
+
+14.列表过渡：
+<transition-group></transition-group>
++<style></style>

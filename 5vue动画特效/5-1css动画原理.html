@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../vue.min.js"></script>
+    <style>
+        .v-enter{
+            opacity: 0;
+        }
+        .v-enter-active,
+        .v-leave-active {
+            transition: opacity 1s;
+        }
+        .v-leave-to{
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <transition>
+            <div v-if="show">hello world</div>
+        </transition>
+        <button @click="handleClick">切换</button>
+    </div>
+    <script>
+
+        
+        new Vue({
+            el:"#app",
+            data(){
+                return {
+                    show:true
+                }
+            },
+            methods: {
+                handleClick(){
+                    this.show = !this.show
+                }
+            },
+        })
+    </script>
+    
+</body>
+</html>

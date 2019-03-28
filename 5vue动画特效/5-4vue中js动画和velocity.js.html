@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <transition
+        name="fade"
+        @before-enter="handleBeforeEnter"
+        @enter = "handleEnter"
+        @after-enter="handleAfterEnter"
+        >
+            <div v-show="show">hello world</div>
+        </transition>
+        <button @click="handleClick">change</button>
+    </div>
+
+    <script>
+        //通过js实现动画//通过钩子函数实现
+
+        new Vue({
+            el:"#app",
+            data(){
+                return {
+                    show:true
+                }
+            },
+            methods: {
+                handleClick(){
+                    this.show = !this.show
+                },
+                //接收1个参数，el代表div元素
+                handleBeforeEnter(el){
+                    el.style.color = "red"
+                },
+                handleEnter(el,done){
+                    setTimeout(() => {
+                        el.style.color = "green"
+                        //done时回调函数，结束时调用下告诉程序执行完毕
+                        // done()
+                    },2000)
+                    
+                    setTimeout(()=>{
+                        done()
+                    },4000)
+                },
+                handleAfterEnter(el){
+                    el.style.color = "#000"
+                }
+            }
+        })
+    </script>
+</body>
+</html>
