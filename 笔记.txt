@@ -71,3 +71,32 @@ Vue.prototype.bus = new Vue()
 14.列表过渡：
 <transition-group></transition-group>
 +<style></style>
+
+15.transition中的钩子函数：
+<transition
+        name="fade"
+        @before-enter="handleBeforeEnter"
+        @enter = "handleEnter"
+        @after-enter="handleAfterEnter"
+        >
+methods:{
+    handleBeforeEnter(el){},
+    handleEnter(el,done){
+        done()
+    },
+    handleAfterEnter(el){}
+}
+
+16.配置ssh
+//16.1步骤1.检查是否已经存在SSH Key
+ls -al ~/.ssh
+//16.1.1 ssh-keygen -t rsa -C "your_email@example.com"
+//16.1.2 pbcopy < ~/.ssh/id_rsa.pub 获得的SSH Key粘贴到
+//16.2 打开GitLab, 登录->点击右上角的用户头像->点击settings->在settings里找到SSH的设置->点击“ADD SSH KEY”按钮添加->将已经获得的SSH Key粘贴到“Key”，标题可以随便取，这样就保持了本地与服务器端的联系.
+
+17.创建项目
+npm install --global vue-cli
+vue init webpack my-project
+cd my-project
+npm install
+npm run dev
