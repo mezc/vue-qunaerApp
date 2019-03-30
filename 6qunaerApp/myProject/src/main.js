@@ -7,9 +7,14 @@ import router from './router'
 import "./assets/style/reset.css"
 // 1像素边框显示多像素问题解决方案，引入border.css
 import "./assets/style/border.css"
-//解决不同浏览器click事件延迟
+//解决不同浏览器click事件延迟300ms,引入fastclick模块，cnpm i fastclick -S
+import fastClick from "fastclick"
+// 引入iconfont.css
+import "./assets/style/iconfont.css"
+
 
 Vue.config.productionTip = false
+fastClick.attach(document.body)
 
 /* eslint-disable no-new */
 new Vue({

@@ -100,3 +100,27 @@ vue init webpack my-project
 cd my-project
 npm install
 npm run dev
+
+18.样式依赖:stylus
+cnpm i stylus -S
+cnpm i stylus-loader -S
+
+19./* 使用stlus样式:lang="stylus"，要使该样式只对class="header"作用的话，可加上scoped */
+
+20.reset.css里面：
+html {overflow-x: hidden;height: 100%;font-size: 50px;-webkit-tap-highlight-color: transparent;}
+相对50px，1rem = html font-size = 50px，所以,43px =43 * 1/50px=43/50=0.86rem
+,设计稿是两倍尺寸，所以代码里的像素要除以2，再除以50px=rem单位,或者两倍尺寸除以100px
+
+21.定义全局css样式，并在stylus中使用
+//在src/assets/style/新建varibles.styl
+//样式里面引入样式要用@import
+//“@” 代表src这个路径，如果在css中引入其他的css，又要使用@的话要变成："~@"
+
+22.自定义路径代表符:
+//22.1 build/webpack.base.conf.js/
+//22.2 resolve:{
+    alias:{
+        "styles":resolve("src/assets/styles")
+    }
+}
