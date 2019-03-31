@@ -4,18 +4,21 @@
         <HomeHeader></HomeHeader>
         <!-- <home-swiper></home-swiper> -->
         <HomeSwiper></HomeSwiper>
-        <div>test</div>
+        <home-icons></home-icons>
     </div>
 </template>
 
 <script>
 import HomeHeader from "./components/Header"
 import HomeSwiper from "./components/Swiper.vue"
+import HomeIcons from "./components/Icons.vue"
+
 export default {
     name:"Home" ,
     components:{
         HomeHeader,
-        HomeSwiper
+        HomeSwiper,
+        HomeIcons
     }
 }
 </script>
