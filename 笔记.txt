@@ -128,6 +128,7 @@ html {overflow-x: hidden;height: 100%;font-size: 50px;-webkit-tap-highlight-colo
 23.企业级开发，不同功能创建不同分支
 
 24.轮播图组件
+https://github.com/surmon-china/vue-awesome-swiper
 cnpm i vue-awesome-swiper@2.6.7 -S
 
 25.全局使用vue-awesome-swiper
@@ -138,3 +139,9 @@ import VueAwesomeSwiper from 'vue-awesome-swiper'
 import 'swiper/dist/css/swiper.css'
 
 Vue.use(VueAwesomeSwiper, /* { default global options } */)
+
+26.将长字符串用省略号显示
+ellipsis()
+    overflow:hidden
+    white-space:nowrap
+    text-overflow:ellipsis
