@@ -1,8 +1,8 @@
 <template>
     <div class="swiper">
-        <swiper :options="swiperOption">
+        <swiper :options="swiperOption" v-if="showSwiper">
         <!-- slides -->
-        <swiper-slide v-for="item in swiperList" :key="item.id">
+        <swiper-slide v-for="item in sList" :key="item.id">
             <img class="swiper-img" :src="item.imgUrl" />
         </swiper-slide>
     
@@ -14,23 +14,21 @@
 <script>
 export default {
     name:"HomeSwiper",
+    props:{
+        sList: Array
+    },
     data(){
         return {
             swiperOption:{
                 pagination:".swiper-pagination",
                 // 意思是让组件支持循环轮播，这样左右都能有轮播图
                 loop:true
-            },
-            swiperList:[
-                {
-                    id:"0001",
-                    imgUrl:"https://img1.qunarzz.com/qs/1903/ef/f0ec348a8a7c5b02.jpg"
-                },
-                {
-                    id:"0002",
-                    imgUrl:"https://img1.qunarzz.com/qs/1902/ef/fd0268cb94670f02.jpg"
-                }
-            ]
+            }
+        }
+    },
+    computed:{
+        showSwiper (){
+            return this.sList.length
         }
     }
 }

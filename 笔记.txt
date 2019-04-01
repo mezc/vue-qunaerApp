@@ -145,3 +145,29 @@ ellipsis()
     overflow:hidden
     white-space:nowrap
     text-overflow:ellipsis
+
+
+27.vue中发送ajax的方法：
+vue-resource
+axios(推荐使用)
+//cnpm i axios -S
+//axios使用:
+//27.1import axios from "axios
+//27.2使用生命周期函数
+//static放置静态文件/mock/index.json,只有static里的内容能被外部访问到
+//防止被提交到仓库，在.gitignore中添加static/mock
+
+28.vue中的代理
+//config/index.js
+////dev:{
+    proxyTable:{
+        "/api":{
+            target:"http://localhost:8080",
+            pathRewrite:{
+                "^/api":"/static/mock"
+            }
+        }
+    }
+}
+
+29.v-if="list.length",当list为空数组，length为0， v-if=“false”
