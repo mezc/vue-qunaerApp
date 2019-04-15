@@ -9,6 +9,8 @@ import "./assets/styles/border.css"
 // 解决移动端某些机型在执行click事件时，延时300ms
 import fastClick from "fastclick"
 // import "./assets/styles/iconfont.css"
+// 引入iconcss
+import './assets/styles/iconfont.css'
 
 
 fastClick.attach(document.body)
