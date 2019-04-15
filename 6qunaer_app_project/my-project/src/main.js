@@ -11,6 +11,11 @@ import fastClick from "fastclick"
 // import "./assets/styles/iconfont.css"
 // 引入iconcss
 import './assets/styles/iconfont.css'
+//引入轮播组件
+import VueAwesomeSwiper from 'vue-awesome-swiper'
+import 'swiper/dist/css/swiper.css'
+Vue.use(VueAwesomeSwiper)
+
 
 
 fastClick.attach(document.body)
