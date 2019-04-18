@@ -1,8 +1,10 @@
 <template>
     <div class="wrapper">
-        <swiper :options="swiperOption">
+        <!-- 空数组时swiper为被创建 -->
+        <!-- <swiper :options="swiperOption" v-if="swiper_list.length"> 避免在模版中有逻辑计算，使用computed计算属性-->
+        <swiper :options="swiperOption" v-if="showSwiper">
         <!-- slides -->
-        <swiper-slide v-for = "item in swiperList" :key="item.id">
+        <swiper-slide v-for = "item in swiper_list" :key="item.id">
             <img class="swipe-img" :src="item.imgUrl" alt="" />
         </swiper-slide>
         <!-- Optional controls -->
@@ -14,24 +16,22 @@
 <script>
 export default {
     name:"HomeSwiper",
+    props:{
+        swiper_list:Array
+    },
     data(){
         return {
             swiperOption: {
                 pagination: '.swiper-pagination',
                 loop: true
-            },
-            swiperList:[
-                {
-                    id:"0001",
-                    imgUrl:"http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20193/87a224d0349d94a11e97f31aa1aba4f5.jpg_750x200_1f78af87.jpg"
-                },
-                {
-                    id:"0002",
-                    imgUrl:"http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20193/b23a39921e8b78f38b61412d691d93ea.jpg_750x200_942ed7bd.jpg"
-                }
-            ]
+            }
         }
-    }
+    },
+    computed: {
+        showSwiper (){
+            return this.swiper_list.length
+        }
+    },
 }
 </script>
 
@@ -44,7 +44,7 @@ export default {
         height 0
         width 100%
         overflow hidden
-        padding-bottom 26.67%
+        padding-bottom 29%
         .swipe-img
             width 100%
             

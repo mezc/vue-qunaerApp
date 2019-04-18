@@ -156,17 +156,22 @@ axios(推荐使用)
 //cnpm i axios -S
 //axios使用:
 //27.1import axios from "axios
-//27.2使用生命周期函数
-//static放置静态文件/mock/index.json,只有static里的内容能被外部访问到
+//27.2使用生命周期函数mounted (){}
+//27.2.1mounted (){
+    this.getHomeInfo()
+}
+//static放置静态文件/mock文件夹/index.json,只有static里的内容能被外部访问到
 //防止被提交到仓库，在.gitignore中添加static/mock
+//在home.vue中写axios请求，可以传给每一个子组件
 
-28.vue中的代理
-//config/index.js
+28.对api下json的请求转发到static/mock/xx.json下，使用vue中的proxy代理
+//config文件夹/index.js文件
 ////dev:{
     proxyTable:{
         "/api":{
             target:"http://localhost:8080",
             pathRewrite:{
+                //一旦请求是以api开头，转发到'/static/mock下'
                 "^/api":"/static/mock"
             }
         }

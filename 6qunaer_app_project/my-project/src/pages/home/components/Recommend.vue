@@ -3,7 +3,7 @@
         <div class="recommend-title">热销推荐</div>
         <ul>
             <!-- border-bottom解决1像素边框 -->
-            <li class="item border-bottom" v-for="item in recommendList" :key="item.id">
+            <li class="item border-bottom" v-for="item in recommend_list" :key="item.id">
                 <div>
                     <img class="item-img" :src="item.imgUrl" alt="">
                 </div>
@@ -20,29 +20,8 @@
 <script>
 export default {
     name:"HomeRecommend",
-    data(){
-        return {
-            recommendList:[
-            {
-                id:"0001",
-                imgUrl:"http://img1.qunarzz.com/sight/p0/1702/9b/9b45082b3e38b2fda3.water.jpg_200x200_785628c9.jpg",
-                title:"锦绣中华民俗村",
-                desc:"56个民族56支花~"
-            },
-            {
-                id:"0002",
-                imgUrl:"http://img1.qunarzz.com/sight/p0/1507/64/34362835b4a219af8b36803d31a6380f.water.jpg_200x200_bc5c0452.jpg",
-                title:"深圳小梅沙海洋世界",
-                desc:"小梅沙"
-            },
-            {
-                id:"0003",
-                imgUrl:"http://img1.qunarzz.com/sight/p0/1502/15/15ca1d0eab6bf46c.water.jpg_200x200_50ca7bb1.jpg",
-                title:"东部华侨城大侠谷",
-                desc:"行走峡湾栈道，倾听大自然的天籁之音"
-            }
-        ]
-        }
+    props:{
+        recommend_list:Array
     }
 }
 </script>
