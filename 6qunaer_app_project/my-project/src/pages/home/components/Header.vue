@@ -19,7 +19,7 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-// 样式里引入样式要在前加@
+// 样式里引入样式要在import前加@
 //在css中使用@，要在前加入～
 //在webpack.base.conf.js中alias,配置styles代表路径src/assets/styles,重新运行npm run dev
     // @import '~styles/varibles.styl'

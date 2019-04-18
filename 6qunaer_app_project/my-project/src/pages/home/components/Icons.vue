@@ -92,38 +92,40 @@ export default {
     height 0
     padding-bottom 50%
     // background green 
-.icon
-    position relative
-    float left 
-    width 25%
-    padding-bottom 25%
-    // background red
-    overflow hidden
-    height 0
-    .icon-img
-        position absolute
-        top 0
-        left 0
-        right 0
-        bottom .44rem
-        // background blue
-        box-sizing border-box
-        padding .1rem
-        .icon-img-content
-            height 100%
-            // 自动居中
-            display block
-            margin 0 auto 
-    .icon-desc
-        position absolute
-        left 0
-        right 0
-        bottom 0
-        height .44rem
-        line-height .44rem
-        color:$darkTextColor
-        text-align center
-        // 长文字使用...表示,创建mixins.styl
-        ellipsis()
+.icons
+    margin-top .2rem
+    .icon
+        position relative
+        float left 
+        width 25%
+        padding-bottom 25%
+        // background red
+        overflow hidden
+        height 0
+        .icon-img
+            position absolute
+            top 0
+            left 0
+            right 0
+            bottom .44rem
+            // background blue
+            box-sizing border-box
+            padding .1rem
+            .icon-img-content
+                height 100%
+                // 自动居中
+                display block
+                margin 0 auto 
+        .icon-desc
+            position absolute
+            left 0
+            right 0
+            bottom 0
+            height .44rem
+            line-height .44rem
+            color:$darkTextColor
+            text-align center
+            // 长文字使用...表示,创建mixins.styl
+            ellipsis()
 
 </style>
