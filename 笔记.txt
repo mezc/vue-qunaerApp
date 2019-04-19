@@ -179,3 +179,5 @@ axios(推荐使用)
 }
 
 29.v-if="list.length",当list为空数组，length为0， v-if=“false”
+30.页面跳转
+<router-link></router-link>
