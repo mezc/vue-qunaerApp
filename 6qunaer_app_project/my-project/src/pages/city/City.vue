@@ -3,8 +3,12 @@
     <div>
         <city-header></city-header>
         <city-search></city-search>
-        <city-list :city_list_cities="cities" :city_list_hotCities="hotCities"></city-list>
-        <city-alphabet :alphabet_cities="cities"></city-alphabet>
+        <city-list :city_list_cities="cities" :city_list_hotCities="hotCities"
+        :city_list_letter="letter"></city-list>
+        <!-- 监听子组件alphabet.vue传递的事件 -->
+        <city-alphabet :alphabet_cities="cities"
+        @alphabet_to_father="handleLetterChange"
+        ></city-alphabet>
     </div>
     
 </template>
@@ -27,7 +31,8 @@ export default {
     data(){
         return {
             cities:{},
-            hotCities:[]
+            hotCities:[],
+            letter:""
         }
     },
     methods:{
@@ -43,6 +48,10 @@ export default {
                 this.cities = data.cities
                 this.hotCities = data.hotCities
             }
+        },
+        handleLetterChange(letter){
+            this.letter = letter
+            // console.log("letter", letter)
         }
     },
     mounted() {

@@ -1,6 +1,6 @@
 <template>
     <ul class="list">
-        <li class='item' v-for="(item, key) in alphabet_cities" :key="key">{{key}}</li>
+        <li class='item' v-for="(item, key) in alphabet_cities" :key="key" @click="handleLetterClick">{{key}}</li>
     </ul>
 </template>
 
@@ -9,6 +9,13 @@ export default {
     name: 'CityAlphabet',
     props:{
         alphabet_cities:Object
+    },
+    methods:{
+        handleLetterClick(e){
+            // 向父组件传值
+            this.$emit("alphabet_to_father", e.target.innerText)
+            // console.log("e", e.target.innerText)
+        }
     }
     
 }
