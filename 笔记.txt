@@ -197,3 +197,10 @@ axios(推荐使用)
     import BScroll from 'better-scroll'
     const wrapper = document.querySelector('.wrapper')
     const scroll = new BScroll(wrapper)//创建一个新BScroll的实例，接收一个dom元素（使用ref获取dom元素）
+
+32.发送ajax的步骤
+32.1在最外面的页面建立，import axios from "axios"
+32.2 mounted(){
+    this.getCityInfo()
+}
+32.3 

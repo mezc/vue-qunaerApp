@@ -1,16 +1,16 @@
 <template>
     <ul class="list">
-        <li class='item'>A</li>
-        <li class='item'>B</li>
-        <li class='item'>C</li>
-        <li class='item'>D</li>
-        <li class='item'>E</li>
+        <li class='item' v-for="(item, key) in alphabet_cities" :key="key">{{key}}</li>
     </ul>
 </template>
 
 <script>
 export default {
-    name: 'CityAlphabet'
+    name: 'CityAlphabet',
+    props:{
+        alphabet_cities:Object
+    }
+    
 }
 </script>
 
@@ -28,6 +28,6 @@ export default {
         justify-content center
         .item
             line-height .4rem
-            text-align center
+            text-align center 
             color $bgColor
 </style>
