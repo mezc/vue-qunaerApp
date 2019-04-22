@@ -181,3 +181,19 @@ axios(推荐使用)
 29.v-if="list.length",当list为空数组，length为0， v-if=“false”
 30.页面跳转
 <router-link></router-link>
+
+31.解决列表区域不能拖动，引入第三方包，better-scroll
+31.1 cnpm install better-scroll --save
+31.2 使用参考文档：https://github.com//ustbhuangyi/better-scroll
+31.3 使用better-scroll必须符合下列结构：
+    <div>
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+31.4
+    import BScroll from 'better-scroll'
+    const wrapper = document.querySelector('.wrapper')
+    const scroll = new BScroll(wrapper)//创建一个新BScroll的实例，接收一个dom元素（使用ref获取dom元素）
