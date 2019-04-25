@@ -203,4 +203,17 @@ axios(推荐使用)
 32.2 mounted(){
     this.getCityInfo()
 }
-32.3 字母表滚动事件的监听
+33.大量数据的传递用vuex
+33.1安装cnpm install vuex --save
+33.2 src/store/index.js
+【
+    import Vue from "vue"
+import Vuex from "vuex"
+Vue.use(Vuex)
+export default new Vuex.Store({
+    state:{
+        city:"北京"
+    }
+})
+】
+33.3 main.js:
