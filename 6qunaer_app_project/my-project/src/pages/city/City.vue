@@ -34,7 +34,7 @@ export default {
             hotCities:[],
             letter:""
         }
-    },
+    }, 
     methods:{
         getCityInfo(){
            axios.get("/api/city.json")

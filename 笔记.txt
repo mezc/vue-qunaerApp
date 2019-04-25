@@ -203,4 +203,4 @@ axios(推荐使用)
 32.2 mounted(){
     this.getCityInfo()
 }
-32.3 
+32.3 字母表滚动事件的监听

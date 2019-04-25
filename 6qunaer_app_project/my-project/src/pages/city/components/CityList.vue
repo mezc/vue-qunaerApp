@@ -17,13 +17,17 @@
                     热门城市
                 </div>
                 <div class="button-list">
-                    <div class="button-wrapper" v-for="item in city_list_hotCities" :key="item.id">
+                    <div class="button-wrapper" 
+                    v-for="item in city_list_hotCities" :key="item.id">
                         <div class="button">{{item.name}}</div>
                     </div>
                 </div>
             </div>
 
-            <div class="area" v-for="(item, key) in city_list_cities" :key="key" :ref="key">
+            <div class="area" 
+            v-for="(item, key) in city_list_cities" 
+            :key="key" 
+            :ref="key">
                 <div class="title border-topbottom">
                     {{key}}
                 </div>
@@ -48,6 +52,8 @@ export default {
     },
     mounted() {
         // console.log(this.$refs.city-list-wrapper)
+        // ref="wrapper" -> this.$refs.wrapper
+        //:ref="key" -> this.$refs[this.city_list_letter][0]
         this.scroll = new BScroll(this.$refs.wrapper)
     },
     // 监听器，监听city_list_letter,一旦点击字母发生变化就会执行函数里的代码
@@ -55,6 +61,9 @@ export default {
     watch:{
         city_list_letter (){
             // console.log("watch_city_list_letter", this.city_list_letter)
+            // ref="wrapper" -> this.$refs.wrapper
+            //:ref="key" -> this.$refs[this.city_list_letter][0]
+            //[0]转为dom元素
             if (this.city_list_letter){
                 const element = this.$refs[this.city_list_letter][0]
                 // console.log("element", element)
