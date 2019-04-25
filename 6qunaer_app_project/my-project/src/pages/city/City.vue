@@ -2,7 +2,7 @@
     <!-- <div>city</div> -->
     <div>
         <city-header></city-header>
-        <city-search></city-search>
+        <city-search :search_cities="cities"></city-search>
         <city-list :city_list_cities="cities" :city_list_hotCities="hotCities"
         :city_list_letter="letter"></city-list>
         <!-- 监听子组件alphabet.vue传递的事件 -->
