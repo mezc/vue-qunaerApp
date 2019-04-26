@@ -218,3 +218,7 @@ export default new Vuex.Store({
 】
 33.3 main.js里import
 调用state，首先调用actions，再调用mutations
+33.4
+//state:储存公用数据
+//mutations:储存同步数据的改变
+//action:异步数据
