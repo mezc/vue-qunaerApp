@@ -1,11 +1,12 @@
 import Vue from "vue"
 import Vuex from "vuex"
+import state from "./state"
+import mutations from "./mutations.js"
 Vue.use(Vuex)
+
 export default new Vuex.Store({
     // state存放全局共用的数据
-    state:{
-        city:"上海"
-    },
+    state:state,
     actions:{
         changeCity(ctx, city){
             // console.log(city)
@@ -13,9 +14,5 @@ export default new Vuex.Store({
             ctx.commit("changeCity", city)
         }
     },
-    mutations:{
-        changeCity(state,city){
-            state.city = city
-        }
-    }
+    mutations:mutations
 })
