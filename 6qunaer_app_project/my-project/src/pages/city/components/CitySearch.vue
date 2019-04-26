@@ -23,6 +23,7 @@
 
 <script>
 import BScroll from "better-scroll"
+import { mapMutations} from "vuex"
 export default {
     name:"CitySearch",
     props:{
@@ -32,17 +33,20 @@ export default {
         return {
             keyword: "",
             search_list: [],
-            timer:null
+            timer: null
         }
     },
     methods:{
         handleCityClick(city){
             // 在new Vuex.Store中添加一个action，与changeCity名一样
-            this.$store.dispatch("changeCity",city)
+            // this.$store.dispatch("changeCity",city)
+            this.changeCity(city)
             // alert(city)
-            // 改变城市之后跳转到首页
+            //城市改变之后跳转到首页
             this.$router.push("/")
-        }
+        },
+        //意思是：有一个mutation叫changeCity,将这个mutation映射到这个组件一个名字叫changeCity的方法里
+        ...mapMutations(["changeCity"])
     },
     computed:{
         hasNoData(){

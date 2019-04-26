@@ -46,6 +46,7 @@
 </template>
 <script>
 import BScroll from 'better-scroll'
+import {mapState, mapMutations} from "vuex"
 export default {
     name: "CityList",
     props:{
@@ -53,14 +54,24 @@ export default {
         city_list_cities:Object,
         city_list_letter:String
     },
+    // 意思是：将公有数据city映射到computed的计算属性里，属性的名字叫做currentCity
+    //将this.$store.state.city改为this.currentCity
+    computed: {
+        ...mapState({
+            currentCity: "city"
+        })
+    },
     methods: {
         handleCityClick(city){
             // 在new Vuex.Store中添加一个action，与changeCity名一样
-            this.$store.dispatch("changeCity",city)
+            // this.$store.dispatch("changeCity",city)
+            this.changeCity(city)
             // alert(city)
             //城市改变之后跳转到首页
             this.$router.push("/")
-        }
+        },
+        //意思是：有一个mutation叫changeCity,将这个mutation映射到这个组件一个名字叫changeCity的方法里
+        ...mapMutations(["changeCity"])
     },
     mounted() {
         // console.log(this.$refs.city-list-wrapper)
