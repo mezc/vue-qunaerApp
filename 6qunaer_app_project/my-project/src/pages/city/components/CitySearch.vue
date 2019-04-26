@@ -10,6 +10,7 @@
                 <li class="search-item border-bottom"
                 v-for="item in search_list"
                 :key="item.id"
+                @click="handleCityClick(item.name)"
                 >{{item.name}}
                 </li>
                 <li class="search-item border-bottom" v-show=" hasNoData">
@@ -32,6 +33,15 @@ export default {
             keyword: "",
             search_list: [],
             timer:null
+        }
+    },
+    methods:{
+        handleCityClick(city){
+            // 在new Vuex.Store中添加一个action，与changeCity名一样
+            this.$store.dispatch("changeCity",city)
+            // alert(city)
+            // 改变城市之后跳转到首页
+            this.$router.push("/")
         }
     },
     computed:{

@@ -1,7 +1,7 @@
 <template>
     <div>
         <!-- 模版里会自动把大写转换为- -->
-        <home-header :header_city="city"></home-header>
+        <home-header></home-header>
         <home-swiper :swiper_list="swiperList"></home-swiper>
         <home-icons :icon_list="iconList"></home-icons>
         <home-recommend :recommend_list="recommendList"></home-recommend>
@@ -30,7 +30,6 @@
         },
         data (){
             return {
-                city:'',
                 swiperList:[],
                 iconList:[],
                 recommendList:[],
@@ -46,7 +45,6 @@
                 res = res.data
                 if(res.ret && res.data){
                     const data = res.data
-                    this.city = data.city
                     this.swiperList = data.swiperList
                     this.iconList = data.iconList
                     this.recommendList = data.recommendList

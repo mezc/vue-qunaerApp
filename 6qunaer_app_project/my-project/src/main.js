@@ -14,6 +14,7 @@ import './assets/styles/iconfont.css'
 //引入轮播组件
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import 'swiper/dist/css/swiper.css'
+// 引入vuex
 import store from "./store/index.js"
 Vue.use(VueAwesomeSwiper)
 
