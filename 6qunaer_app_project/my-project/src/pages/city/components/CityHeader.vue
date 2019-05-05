@@ -31,8 +31,5 @@ export default {
             left 0
             top 0
             color #fff
-            
-
-
 </style>
 

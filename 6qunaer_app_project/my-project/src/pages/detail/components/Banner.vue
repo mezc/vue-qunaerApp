@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="banner" @click="handleBannerClick">
-            <img class="banner-img" src="//img1.qunarzz.com/sight/p0/1508/2e/d9363ce50a88c8c5ff5a138c67687cd4.water.jpg_600x330_28bda6b0.jpg" />
+            <img class="banner-img" src="http://img1.qunarzz.com/sight/p0/1904/de/de517f86e9fd0d87a3.water.png_200x200_6b795cbf.png" />
             <div class="banner-info">
                 <div class="banner-title">深圳野生动物园(AAAA景区)</div>
                 <div class="banner-number">
