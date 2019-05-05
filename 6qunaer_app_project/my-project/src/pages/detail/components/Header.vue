@@ -34,6 +34,7 @@ export default {
     },
     methods: {
         handleScroll(){
+            console.log("scroll")
             const top = document.documentElement.scrollTop
             if (top > 60){
                 let opacity = top / 140
@@ -49,8 +50,14 @@ export default {
         }
     },
     activated() {
+        // 绑定到了window全局变量，没有绑定到组件中
         window.addEventListener("scroll", this.handleScroll)
-    }
+    },
+    //使用了keep-alive后，会产生两个钩子函数：activated和deactivated,页面即将被隐藏或页面即将被替换成新页面时
+    //对全局事件解绑
+    deactivated() {
+        window.removeEventListener("scroll", this.handleScroll)
+    },
 }
 </script>
 
