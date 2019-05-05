@@ -4,11 +4,11 @@
         <!-- <swiper :options="swiperOption" v-if="swiper_list.length"> 避免在模版中有逻辑计算，使用computed计算属性-->
         <swiper :options="swiperOption" v-if="showSwiper">
         <!-- slides -->
-        <swiper-slide v-for = "item in swiper_list" :key="item.id">
-            <img class="swipe-img" :src="item.imgUrl" alt="" />
-        </swiper-slide>
-        <!-- Optional controls -->
-        <div class="swiper-pagination"  slot="pagination"></div>
+            <swiper-slide v-for = "item in swiper_list" :key="item.id">
+                <img class="swipe-img" :src="item.imgUrl" alt="" />
+            </swiper-slide>
+            <!-- Optional controls -->
+            <div class="swiper-pagination"  slot="pagination"></div>
         </swiper>
     </div>
     
