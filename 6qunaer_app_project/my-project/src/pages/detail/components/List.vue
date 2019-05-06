@@ -10,7 +10,7 @@
                 <span class="item-title-icon"></span>
                 {{item.title}}
             </div>
-            <div v-if="item.children">
+            <div v-if="item.children"> 
                 <!-- 递归调用 -->
                 <detail-list :l_list="item.children" class="item-children"></detail-list>
             </div>
