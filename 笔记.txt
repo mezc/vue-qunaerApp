@@ -222,3 +222,32 @@ export default new Vuex.Store({
 //state:储存公用数据
 //mutations:储存同步数据的改变
 //action:异步数据
+
+34.webpack默认不支持通过ip访问，
+在package.json里配置，
+"scripts":{"dev":--host 0.0.0.0}
+    ifconfig,获取inet本机ip -> 10.71.41.48
+    输入10.71.41.48:8080访问
+
+35.解决手机端不支持promise,解决白屏问题
+    cnpm install babel-polyfill --save
+    在main.js中,import 'babel-polyfill'
+
+36.打包编译上线过程
+    >命令行：npm run build -> 生成的dist文件夹，就是最终要上线的代码。
+    >将dist里文件放在后端服务器的根目录下即可。
+    >修改dist文件所放的路径：config - index.js - build:{assetsPublicPath:'/project'}
+    则相应打开的路径为：localhost/project
+
+37.dist详解：
+    >static
+        >css
+        >js
+            >app.js > 各个逻辑代码
+            >manifest.js > 打包的配置文件
+            >vendor.js > 各个组件公用的代码
+
+38.vue知识点
+    >vue-rooter
+    >vuex
+    >vue服务端渲染

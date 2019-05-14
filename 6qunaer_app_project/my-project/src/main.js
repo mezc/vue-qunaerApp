@@ -17,6 +17,8 @@ import 'swiper/dist/css/swiper.css'
 // 引入vuex
 import store from "./store/index.js"
 Vue.use(VueAwesomeSwiper)
+// 引入babel-polyfill
+import 'babel-polyfill'
 
 
 

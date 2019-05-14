@@ -13,8 +13,11 @@ module.exports = {
     proxyTable: {
       '/api':{
         target: 'http://localhost:8080',
+        // 请求的后端地址，写在这里，前端请求自动转发到这个地址
+        // target:'http://localhost:80',
         pathRewrite: {
           '^/api': '/static/mock'
+          // '^/api':'api'
         }
       }
     },

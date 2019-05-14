@@ -7,11 +7,12 @@
         @touchmove="handleTouchMove"
         @touchend="handleTouchEnd"
         > -->
+        <!-- touchstart.prevent,事件修饰符，可以阻止touchstart的默认行为 -->
         <li class='item' v-for="key in letters" 
         :key="key"
         :ref="key" 
         @click="handleLetterClick"
-        @touchstart="handleTouchStart"
+        @touchstart.prevent="handleTouchStart"
         @touchmove="handleTouchMove"
         @touchend="handleTouchEnd"
         >
