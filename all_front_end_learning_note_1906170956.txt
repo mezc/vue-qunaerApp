@@ -461,6 +461,63 @@ git config -- global user.email "...."
 //14创建新分支不切换到新分支：git branch 新分支名
 //15.1.本地分支重命名 git branch -m oldBranchName newBranchName
 //15.2.远程分支重命名:如果修改远程分支，只需要将本地分支重命名为新分支名称，然后删除远程分支，再把本地分支上传就可以了
+----------------------------------------------------------------------------------------------------------
+补充：git command
+#查看远程分支
+git branch -r
+ 
+#查看本地分支
+git branch
+ 
+#拉取远程分支
+git checkout -b 本地分支 origin/远程分支
+ 
+#拉取远程分支
+git pull origin 远程分支　
+ 
+#建立分支
+git branch --set-upstream-to origin/远程分支名  本地分支名
+ 
+#拉取分支
+git pull
+ 
+#遇到本地冲突，先删除本地分支，再重新拉取远程分支
+git branch -D 本地分支名称
+
+27.2.1查看远程分支
+使用如下git命令查看所有远程分支：
+
+git branch -r
+ 
+
+27.2.2拉取远程分支并创建本地分支
+方法一
+使用如下命令：
+
+git checkout -b 本地分支名x origin/远程分支名x
+ 
+
+使用该方式会在本地新建分支x，并自动切换到该本地分支x。
+
+采用此种方法建立的本地分支会和远程分支建立映射关系。
+
+方式二
+使用如下命令：
+
+git fetch origin 远程分支名x:本地分支名x
+
+使用该方式会在本地新建分支x，但是不会自动切换到该本地分支x，需要手动checkout。
+
+采用此种方法建立的本地分支不会和远程分支建立映射关系。
+
+27.2.3本地分支和远程分支建立映射关系的作用
+git branch --set-upstream-to origin/远程分支名  本地分支名
+
+27.2.4切换分支
+git checkout 本地分支名
+27.2.5合并分支
+git merge 本地分支名称
+-------------------
 
 28.mui图标，在example的icon里找，标签里的mui-icon 不能删除，引入样式：/css/icons-extra.css" ,font
 
@@ -745,3 +802,4 @@ export default new Vuex.Store({
     >vue-rooter
     >vuex
     >vue服务端渲染
+--------------------------- -- ---------
